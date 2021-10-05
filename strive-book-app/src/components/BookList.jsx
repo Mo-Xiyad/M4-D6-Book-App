@@ -5,26 +5,29 @@ import Container from "react-bootstrap/Container";
 
 
 class BookList extends Component {
+
+    // to get the same result i can use "state" value instead of the prop value
+
     state = {
-        query: "",
+        selected: false,
+        bookId: null
     };
 
-    search = (e) => {
-        this.setState({
-            query: e.target.value,
-        });
-    };
+    // search = (e) => {
+    //     this.props.onChange(e);
+    // };
 
 
     filterBookList = (list) => {
         const isFound = list.filter((book) =>
-            book.title.toLowerCase().includes(this.state.query.toLowerCase())
+            book.title.toLowerCase().includes(this.props.query.toLowerCase())
         );
 
         console.log(isFound);
         return isFound;
     };
 
+    // getSelectedBook =  ()
 
     render() {
         return (
@@ -34,20 +37,29 @@ class BookList extends Component {
                         <Form.Control
                             type="text"
                             placeholder="Search here"
-                            value={this.state.query}
-                            onChange={(e) => this.search(e)}
+                            value={this.props.value}
+                            onChange={(e) => this.props.onChange(e)}
                         />
                     </Form.Group>
                 </div>
 
                 <div className="d-flex flex-wrap justify-content-around">
                     {
-                        !this.state.query
+                        !this.props.query
                             ? this.props.list.map((books) => (
-                                <SingleBook Key={books.asin} books={books} />
+                                <SingleBook Key={books.asin} books={books}
+                                    selected={this.state.selected}
+                                    onClick={(e) => this.setState({
+                                        selected: !this.state.selected,
+                                        bookId: books.asin
+                                    })}
+                                />
                             ))
                             : this.filterBookList(this.props.list).map((books) => (
-                                <SingleBook Key={books._id} books={books} id={books.asin} />
+                                <SingleBook Key={books._id} books={books} id={books.asin}
+                                    selected={this.state.selected}
+                                    onClick={(e) => this.setState({ selected: !this.state.selected })}
+                                />
                                 // <SingleBook image={books.img} title={books.title} /> // this is same as the line above   
                             ))
 

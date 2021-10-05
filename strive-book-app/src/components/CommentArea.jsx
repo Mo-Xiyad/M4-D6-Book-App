@@ -47,12 +47,12 @@ class CommentArea extends Component {
                     this.state.comments.map(com => (
 
                         <ListGroup className="d-flex" key={com._id}>
-                            <ListGroup className="d-flex" key={com._id}>
-                                <div className="d-flex justify-content-between">
-                                    Rating: <StarRating rate={com.rate} />
-                                    <DeleteBook Key={com._id} id={com._id} />
-                                </div>
-                            </ListGroup>
+                            {/* <ListGroup className="d-flex" key={com._id}> */}
+                            <div className="d-flex justify-content-between">
+                                Rating: <StarRating rate={com.rate} />
+                                <DeleteBook Key={com._id} id={com._id} />
+                            </div>
+                            {/* </ListGroup> */}
                             <ListGroup.Item className="justify-content-around">
                                 {com.comment}
                             </ListGroup.Item>

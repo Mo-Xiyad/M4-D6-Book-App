@@ -10,11 +10,7 @@ class SingleBook extends Component {
         selected: false
     }
 
-    selectCard = () => {
-        this.setState({
-            selected: !this.state.selected
-        })
-    }
+
 
     render() {
         return (
@@ -22,11 +18,11 @@ class SingleBook extends Component {
 
                 key={this.props.books._id}
                 style={{ width: "24%", marginTop: "10px" }}
-                className={this.state.selected ? 'selected' : 'card-style'}
+                className={this.props.selected ? 'selected' : 'card-style'}
 
             >
                 <Card.Img variant="top" src={this.props.books.img}
-                    onClick={this.selectCard}
+                    onClick={this.props.onClick}
                 />
                 {/* <Card.Img variant="top" src={this.props.image} />  this line works only if the book is passed as "image=books.img"  */}
                 <Card.Body>
@@ -40,7 +36,7 @@ class SingleBook extends Component {
                         </Form.Group> */
                 }
                 {
-                    this.state.selected
+                    this.props.selected
                         ?
                         <div>
                             <CommentArea Key={this.props.books.asin} id={this.props.books.asin} />

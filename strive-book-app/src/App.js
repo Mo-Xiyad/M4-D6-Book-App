@@ -28,21 +28,33 @@ import BookList from './components/BookList';
 import MyFooter from './components/MyFooter';
 import history from './data/history.json'
 import Container from "react-bootstrap/Container";
+import { Component } from 'react';
 
 
 
-function App() {
-  return (
-    <div className="App">
+class App extends Component {
 
-      <MyNavbar />
-      <Home />
-      <Container>
-        <BookList list={history} />
-      </Container>
-      {/* <MyFooter /> */}
-    </div>
-  );
+  state = {
+    selected: false,
+    query: "",
+  };
+
+
+  render() {
+    return (
+      <div className="App">
+
+        <MyNavbar />
+        <Home />
+        <Container>
+          <BookList selected={this.state.selected}
+            query={this.state.query} list={history}
+            onChange={(e) => this.setState({ query: e.target.value })} />
+        </Container>
+        {/* <MyFooter /> */}
+      </div>
+    );
+  }
 }
 export default App;
 

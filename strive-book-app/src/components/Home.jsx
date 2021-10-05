@@ -3,7 +3,7 @@ import CommentArea from './CommentArea';
 import { Component } from 'react'
 import Container from 'react-bootstrap/Container'
 import Jumbotron from 'react-bootstrap/Jumbotron'
-import Button from 'react-bootstrap/Button'
+import ListGroup from 'react-bootstrap/ListGroup'
 import Form from 'react-bootstrap/Form'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -49,6 +49,17 @@ class Home extends Component {
                                     </Form.Control>
                                 </Form.Group>
                             </Col>
+
+                            <Col xs="auto" className="ml-auto">
+                                <ListGroup>
+                                    <ListGroup.Item>Cras justo odio</ListGroup.Item>
+                                    <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
+                                    <ListGroup.Item>Morbi leo risus</ListGroup.Item>
+                                    <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
+                                    <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
+                                </ListGroup>
+                            </Col>
+
                         </Row>
                     </div>
                 </Jumbotron>
