@@ -41,11 +41,11 @@ class BookList extends Component {
 
         <div className="d-flex flex-wrap justify-content-around">
           {!this.props.query
-            ? this.props.list.map((books) => (
+            ? this.props.list.map((book) => (
                 <SingleBook
                   setSelectedBook={this.props.setSelectedBook}
-                  key={books.asin}
-                  books={books}
+                  key={book.asin}
+                  book={book}
                 />
               ))
             : this.filterBookList(this.props.list).map((book) => (
