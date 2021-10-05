@@ -51,13 +51,13 @@ class Home extends Component {
                             </Col>
 
                             <Col xs="auto" className="ml-auto">
-                                <ListGroup>
-                                    <ListGroup.Item>Cras justo odio</ListGroup.Item>
+                               { this.props.selctedBook &&<ListGroup>
+                                    <ListGroup.Item>{ this.props.selectedBook.title}</ListGroup.Item>
                                     <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
                                     <ListGroup.Item>Morbi leo risus</ListGroup.Item>
                                     <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
                                     <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
-                                </ListGroup>
+                                </ListGroup>}
                             </Col>
 
                         </Row>

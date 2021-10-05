@@ -35,19 +35,24 @@ import { Component } from 'react';
 class App extends Component {
 
   state = {
-    selected: false,
+    selected: null,
     query: "",
   };
 
+  setSelectedBook = (book) => {
+    this.setState({selected:book})
+  }
 
   render() {
+    
     return (
       <div className="App">
 
         <MyNavbar />
-        <Home />
+        <Home selectedBook={this.state.selected }/>
         <Container>
           <BookList selected={this.state.selected}
+            setSelectedBook={this.setSelectedBook}
             query={this.state.query} list={history}
             onChange={(e) => this.setState({ query: e.target.value })} />
         </Container>

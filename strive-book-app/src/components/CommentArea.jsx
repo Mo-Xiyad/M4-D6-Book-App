@@ -53,9 +53,13 @@ class CommentArea extends Component {
                                 <DeleteBook Key={com._id} id={com._id} />
                             </div>
                             {/* </ListGroup> */}
-                            <ListGroup.Item className="justify-content-around">
-                                {com.comment}
-                            </ListGroup.Item>
+                            <hr />
+                            <div className="d-flex justify-content-center">
+                                <small> <em>
+                                    {com.comment}
+                                </em>
+                                </small>
+                            </div>
                         </ListGroup>
 
                     ))
